@@ -1,7 +1,6 @@
 package com.rabib.UnionFinder;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 import org.apache.commons.io.IOUtils;
 
@@ -13,8 +12,16 @@ public class UnionFind {
 	public static void main(String[] args) throws IOException {
 
 		InputStream inputStream = UnionFind.class.getResourceAsStream("/tinyUF.txt");
-		String theString = IOUtils.toString(inputStream, "UTF-8");
-		System.out.println("Hello World!" + theString);
+		BufferedReader reader = readInputFile();
+		//String theString = IOUtils.toString(inputStream, "UTF-8");
+		System.out.println("Hello World!" + reader.toString());
 
+	}
+	private  BufferedReader readInputFile(){
+
+		InputStream inputStream = getClass().getResourceAsStream("/tinyUF.txt");
+		BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+		//String theString = IOUtils.toString(inputStream, "UTF-8");
+		return reader ;
 	}
 }
