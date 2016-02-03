@@ -2,7 +2,7 @@ package com.rabib.UnionFinder;
 
 import java.io.*;
 
-import org.apache.commons.io.IOUtils;
+
 
 /**
  * Hello world!
@@ -17,18 +17,17 @@ import org.apache.commons.io.IOUtils;
 				L[i] = i;
 			}
 		}
-
+	private  int root(int item){
+		while(item != L[item]) item = L[item];
+		return item;
+		
+	}
 	private boolean isconnect(int p, int q) {
-		return (L[p] ==L[q]);
+		return (root(p) ==root(q));
 	}
 	
 	private void union( int s, int d ){
-		
-		for(int i = 0; i<L.length;i++) {
-			if(L[i] ==L[s]) {
-				L[i] =L[d];
-			}
-		}
+		L[root(d)] = root(s);
 	}
 	private void displayL() {
 		for(int i = 0; i<L.length;i++) {
