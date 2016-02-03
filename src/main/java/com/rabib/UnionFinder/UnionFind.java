@@ -20,8 +20,11 @@ public class UnionFind {
 	}
 
 	private int root(int item) {
-		while (item != L[item])
+		while (item != L[item]){
+			L[item] =L[L[item]];
 			item = L[item];
+			
+		}
 		return item;
 
 	}
