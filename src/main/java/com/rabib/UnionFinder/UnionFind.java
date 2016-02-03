@@ -20,10 +20,10 @@ public class UnionFind {
 	}
 
 	private int root(int item) {
-		while (item != L[item]){
-			L[item] =L[L[item]];
+		while (item != L[item]) {
+			L[item] = L[L[item]];
 			item = L[item];
-			
+
 		}
 		return item;
 
@@ -36,10 +36,16 @@ public class UnionFind {
 	private void union(int s, int d) {
 		int p = root(s);
 		int q = root(d);
-		if( p == q) return ;
-		if(sz[p]> sz[q]){ L[q] = p;	sz[p] += sz[q];	}
-		else            { L[p] = q; sz[q] += sz[p];	}
-		
+		if (p == q)
+			return;
+		if (sz[p] > sz[q]) {
+			L[q] = p;
+			sz[p] += sz[q];
+		} else {
+			L[p] = q;
+			sz[q] += sz[p];
+		}
+
 	}
 
 	private void displayL() {
